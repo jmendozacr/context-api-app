@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Controls from '../components/Controls';
 import data from './../data/post';
 
 const Blog = () => {
@@ -15,6 +16,7 @@ const Blog = () => {
                     </li>
                 ))
             }
+            <Controls/>
         </div>
     );
 }
