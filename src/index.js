@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { ProviderTheme } from './contexts/contextTheme';
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <App />
+            <ProviderTheme>
+                <App />
+            </ProviderTheme>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')

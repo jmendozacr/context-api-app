@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/header/Header';
@@ -7,12 +7,15 @@ import Blog from './pages/Blog';
 import Home from './pages/Home';
 import Article from './pages/Article';
 import Error404 from './pages/Error404';
+import { ContextTheme } from './contexts/contextTheme';
 
 function App() {
+    const { theme } = useContext(ContextTheme);
+
     return (
         <Container>
             <Header/>
-            <Main>
+            <Main theme={theme}>
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/blog" component={Blog} />
@@ -32,6 +35,8 @@ const Container = styled.div`
 `;
 
 const Main = styled.main`
+    font-size: ${props => props.theme ? `${props.theme.fontSize}px` : '16px'};
+    text-align: ${props => props.theme ? props.theme.align : 'right'};
     background: #fff;
     padding: 40px;
     border-radius: 10px;
